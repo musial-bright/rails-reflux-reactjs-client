@@ -1,5 +1,7 @@
 # React with Rails steps
 
+## Configure
+
 npm install -g grunt
 npm install -g yo
 npm install -g generator-react-webpack
@@ -12,14 +14,15 @@ yo react-webpack
 create <Rails-App>/app/assets/javascript/client-bundle.js
 
 Add this to <Rails-App>/config/environments/development.rb:
+```ruby
     config.action_controller.asset_host = Proc.new do |source|
       if source =~ /client-bundle/
         "http://localhost:8000/"
       end
     end
     config.assets.digest = false
+```
 
-
-Run:
-    rails s
-    grunt webpack-dev-server
+## Run
+  * rails s
+  * grunt webpack-dev-server
